@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Monitor, Library, Terminal, ArrowRight, Mail } from "lucide-react";
@@ -9,7 +9,15 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 export default function Foyer() {
   const [hovered, setHovered] = useState<"left" | "right" | null>(null);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(true); // default to true to avoid flash on mobile
   const router = useRouter();
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <main className="relative flex flex-col md:flex-row h-full w-full overflow-hidden bg-[var(--color-oxford-twilight)] text-[var(--color-champagne-gold)] font-sans">
@@ -60,9 +68,9 @@ export default function Foyer() {
         layout
         onClick={() => router.push("/lab")}
         className="relative h-1/2 md:h-full flex flex-col items-center md:items-start cursor-pointer"
-        initial={{ width: "100%" }}
+        initial={{ width: isMobile ? "100%" : "50%" }}
         animate={{
-          width: hovered === "left" ? "60%" : hovered === "right" ? "40%" : "50%",
+          width: isMobile ? "100%" : (hovered === "left" ? "60%" : hovered === "right" ? "40%" : "50%"),
           backgroundColor: hovered === "left" ? "var(--color-pure-black)" : "#1A253000",
         }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -127,9 +135,9 @@ export default function Foyer() {
         layout
         onClick={() => router.push("/library")}
         className="relative h-1/2 md:h-full flex flex-col items-center md:items-end cursor-pointer"
-        initial={{ width: "100%" }}
+        initial={{ width: isMobile ? "100%" : "50%" }}
         animate={{
-          width: hovered === "right" ? "60%" : hovered === "left" ? "40%" : "50%",
+          width: isMobile ? "100%" : (hovered === "right" ? "60%" : hovered === "left" ? "40%" : "50%"),
           backgroundColor: hovered === "right" ? "#D4C4A8" : "#D4C4A800",
           color: hovered === "right" ? "var(--color-espresso-brown)" : "var(--color-champagne-gold)"
         }}
