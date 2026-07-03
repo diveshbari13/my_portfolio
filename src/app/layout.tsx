@@ -19,7 +19,7 @@ const merriweather = Merriweather({
 });
 
 export const metadata: Metadata = {
-  title: "AI & Data Science Engineer Portfolio",
+  title: "Divesh Bari | Digital Portfolio",
   description: "Bridging the gap between cybersecurity engineering and formal sequence-based neural network research.",
 };
 
