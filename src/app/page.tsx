@@ -23,7 +23,7 @@ export default function Foyer() {
     <main className="relative flex flex-col md:flex-row h-full w-full overflow-hidden bg-[var(--color-oxford-twilight)] text-[var(--color-champagne-gold)] font-sans">
       
       {/* Top Header */}
-      <div className="absolute top-6 md:top-10 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex flex-col items-center w-[90%] md:w-auto">
+      <div className="absolute top-6 md:top-10 left-0 w-full z-50 pointer-events-auto flex flex-col items-center">
         <div className="bg-[#1A2530] rounded-full px-4 md:px-8 py-2 md:py-3 shadow-lg border border-white/5">
           <h1 className="text-sm md:text-xl tracking-widest font-light opacity-80 m-0 leading-none text-[var(--color-champagne-gold)] text-center">Divesh&apos;s Workshop &amp; Archive</h1>
         </div>
@@ -36,7 +36,7 @@ export default function Foyer() {
       </div>
 
       {/* Bottom Footer */}
-      <div className="absolute bottom-4 md:bottom-10 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex flex-col items-center justify-center">
+      <div className="absolute bottom-4 md:bottom-10 left-0 w-full z-50 pointer-events-auto flex flex-col items-center justify-center">
         <motion.button 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
