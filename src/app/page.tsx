@@ -1,21 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { FlaskConical, Library, Terminal, ArrowRight, Mail } from "lucide-react";
+import { Monitor, Library, Terminal, ArrowRight, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function Foyer() {
   const [hovered, setHovered] = useState<"left" | "right" | null>(null);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <main className="relative flex h-full w-full overflow-hidden bg-[var(--color-oxford-twilight)] text-[var(--color-champagne-gold)] font-sans">
       
       {/* Top Header */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex justify-center">
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 z-50 pointer-events-auto flex flex-col items-center">
         <div className="bg-[#1A2530] rounded-full px-8 py-3 shadow-lg border border-white/5">
-          <h1 className="text-xl tracking-widest font-light opacity-80 m-0 leading-none text-[var(--color-champagne-gold)]">Divesh's Workshop & Archive</h1>
+          <h1 className="text-xl tracking-widest font-light opacity-80 m-0 leading-none text-[var(--color-champagne-gold)]">Divesh&apos;s Workshop &amp; Archive</h1>
         </div>
+        <span
+          onClick={() => setIsAboutOpen(true)}
+          className="text-xs text-[#E5D3B3]/60 hover:text-[#E5D3B3] font-sans tracking-widest uppercase cursor-pointer transition-colors mt-2 pb-1 border-b border-transparent hover:border-[#E5D3B3]/50"
+        >
+          [ About the Engineer ]
+        </span>
       </div>
 
       {/* Bottom Footer */}
@@ -47,14 +56,17 @@ export default function Foyer() {
         </div>
       </div>
 
+
+
       {/* Left Zone: The Lab */}
       <motion.div
         layout
-        className="relative h-full flex flex-col items-start"
+        onClick={() => router.push("/lab")}
+        className="relative h-full flex flex-col items-start cursor-pointer"
         initial={{ width: "50%" }}
         animate={{
           width: hovered === "left" ? "60%" : hovered === "right" ? "40%" : "50%",
-          backgroundColor: hovered === "left" ? "var(--color-pure-black)" : "transparent",
+          backgroundColor: hovered === "left" ? "var(--color-pure-black)" : "#1A253000",
         }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
@@ -73,7 +85,7 @@ export default function Foyer() {
               transition={{ duration: 0.4 }}
               className="mb-6"
             >
-              <FlaskConical size={48} strokeWidth={1.5} />
+              <Monitor size={48} strokeWidth={1.5} />
             </motion.div>
             
             <h2 className="font-mono text-3xl md:text-5xl font-bold mb-4 uppercase tracking-tighter">
@@ -94,15 +106,15 @@ export default function Foyer() {
                 >
                   <div className="flex items-center gap-2 text-[var(--color-lcars-soft-lilac)]">
                     <Terminal size={14} />
-                    <span>SYS.INIT: Wazuh Integration</span>
+                    <span>ML_CORE: Recurrent Neural Networks &amp; Time-Series Forecasting</span>
                   </div>
                   <div className="flex items-center gap-2 text-[var(--color-lcars-pale-yellow)]">
                     <Terminal size={14} />
-                    <span>NODE: LangGraph Agents Online</span>
+                    <span>SECURE: Wazuh Integration &amp; Automated Active Response</span>
                   </div>
                   <div className="flex items-center gap-2 text-[var(--color-lcars-neon-orange)]">
                     <Terminal size={14} />
-                    <span>DATA: Splunk MLTK Active</span>
+                    <span>ORCHESTRATE: LangGraph Agents &amp; Splunk Machine Learning</span>
                   </div>
                 </motion.div>
               )}
@@ -114,11 +126,12 @@ export default function Foyer() {
       {/* Right Zone: The Library */}
       <motion.div
         layout
-        className="relative h-full flex flex-col items-end"
+        onClick={() => router.push("/library")}
+        className="relative h-full flex flex-col items-end cursor-pointer"
         initial={{ width: "50%" }}
         animate={{
           width: hovered === "right" ? "60%" : hovered === "left" ? "40%" : "50%",
-          backgroundColor: hovered === "right" ? "#D4C4A8" : "transparent",
+          backgroundColor: hovered === "right" ? "#D4C4A8" : "#D4C4A800",
           color: hovered === "right" ? "var(--color-espresso-brown)" : "var(--color-champagne-gold)"
         }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -162,7 +175,7 @@ export default function Foyer() {
                   </div>
                   <div className="flex items-start gap-2">
                     <ArrowRight size={16} className="mt-0.5 shrink-0" />
-                    <span>Thesis: Formal Verification of Sequence-Based Neural Networks</span>
+                    <span>Capstone: Autonomous Multi-Agent Security Orchestration &amp; Anomaly Detection</span>
                   </div>
                 </motion.div>
               )}
@@ -170,6 +183,44 @@ export default function Foyer() {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* About Me Modal */}
+      <AnimatePresence>
+        {isAboutOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsAboutOpen(false)}
+            className="fixed inset-0 z-[100] flex items-start justify-center pt-[120px] bg-black/40 backdrop-blur-md cursor-pointer"
+          >
+            <motion.div
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#1A2530] border border-[#E5D3B3]/20 shadow-2xl rounded-2xl p-8 max-w-md text-center flex flex-col items-center gap-4 cursor-default relative"
+            >
+              <button
+                onClick={() => setIsAboutOpen(false)}
+                className="absolute top-3 right-4 text-[#E5D3B3]/50 hover:text-[#E5D3B3] transition-colors text-lg cursor-pointer bg-transparent border-none"
+              >
+                ✕
+              </button>
+              <p className="text-[#E5D3B3] text-sm leading-relaxed">
+                AI &amp; Data Science engineer bridging sequence-based neural network research with autonomous cybersecurity automation. Compiling theoretical research while engineering live, autonomous threat-monitoring systems.
+              </p>
+              <span
+                onClick={() => setIsAboutOpen(false)}
+                className="text-xs text-[#E5D3B3]/50 hover:text-[#E5D3B3] tracking-widest uppercase cursor-pointer transition-colors mt-2 pb-1 border-b border-transparent hover:border-[#E5D3B3]/50"
+              >
+                [ Close ]
+              </span>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </main>
   );

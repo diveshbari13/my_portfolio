@@ -33,7 +33,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} ${merriweather.variable} h-full antialiased`}
     >
-      <body className="h-full m-0 p-0 overflow-hidden">{children}</body>
+      <body className="h-full m-0 p-0">{children}</body>
     </html>
   );
 }
