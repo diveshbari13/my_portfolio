@@ -4,11 +4,11 @@ export default function LibraryPage() {
   return (
     <main className="min-h-screen bg-[#F4F1EA] text-[#3E2723] font-serif">
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-[#D4C4A8] text-[#3E2723] py-4 px-8 flex justify-between items-center shadow-sm">
+      <nav className="sticky top-0 z-50 bg-[#D4C4A8] text-[#3E2723] py-3 md:py-4 px-4 md:px-8 flex justify-between items-center shadow-sm">
         <Link href="/" className="hover:opacity-70 transition-opacity">
           &lt;- Home
         </Link>
-        <div className="flex gap-6">
+        <div className="flex gap-3 md:gap-6 text-sm">
           <Link href="#research" className="hover:opacity-70 transition-opacity">Research</Link>
           <Link href="#publications" className="hover:opacity-70 transition-opacity">Publications</Link>
           <Link href="#notes" className="hover:opacity-70 transition-opacity">Notes</Link>
@@ -16,8 +16,8 @@ export default function LibraryPage() {
       </nav>
 
       {/* Content */}
-      <div className="p-12 max-w-6xl mx-auto mt-10">
-        <h1 className="text-4xl font-bold mb-4 tracking-tight">The Library</h1>
+      <div className="p-4 md:p-12 max-w-6xl mx-auto mt-6 md:mt-10">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">The Library</h1>
         <p className="opacity-70 italic mb-12">Academic Research & Formal Neural Network Analysis.</p>
 
         {/* Card Grid */}

@@ -326,7 +326,7 @@ export default function LabPage() {
   return (
     <main className="min-h-screen bg-[#050505] text-[#E5D3B3] font-mono selection:bg-[#E5D3B3]/20">
       {/* ─── Navbar ─────────────────────────────────────────────── */}
-      <nav className="sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-md border-b border-[#E5D3B3]/10 py-4 px-8">
+      <nav className="sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-md border-b border-[#E5D3B3]/10 py-3 md:py-4 px-4 md:px-8">
         <div className="flex justify-between items-center">
           <Link
             href="/"
@@ -391,12 +391,12 @@ export default function LabPage() {
       </nav>
 
       {/* ─── Content ────────────────────────────────────────────── */}
-      <div className="max-w-5xl mx-auto py-12 px-6">
+      <div className="max-w-5xl mx-auto py-8 md:py-12 px-4 md:px-6">
 
         {/* ================================================================
             AEGIS AI — Full-Stack Autonomous SIEM Platform
             ================================================================ */}
-        <div id="aegis" className="mb-24 border-b border-[#E5D3B3]/10 pb-16 mb-16">
+        <div id="aegis" className="scroll-mt-24 md:scroll-mt-32 mb-24 border-b border-[#E5D3B3]/10 pb-16 mb-16">
 
           {/* ── Aegis Header ──────────────────────────────────── */}
           <motion.section
@@ -407,7 +407,7 @@ export default function LabPage() {
             <motion.h1
               custom={0}
               variants={fadeUp}
-              className="text-2xl font-bold mb-2 text-[#E5D3B3]"
+              className="text-xl md:text-2xl font-bold mb-2 text-[#E5D3B3]"
             >
               &gt;_ Aegis AI&nbsp;
               <span className="text-[#E5D3B3]/50 font-normal">
@@ -463,10 +463,10 @@ export default function LabPage() {
             <motion.div
               custom={1}
               variants={fadeUp}
-              className="border border-[#E5D3B3]/20 rounded-md overflow-hidden text-sm"
+              className="border border-[#E5D3B3]/20 rounded-md overflow-x-auto text-sm"
             >
               {/* header */}
-              <div className="grid grid-cols-3 bg-[#E5D3B3]/10 p-3 font-bold">
+              <div className="grid grid-cols-3 bg-[#E5D3B3]/10 p-3 font-bold min-w-[500px]">
                 <span>Layer</span>
                 <span>Technology</span>
                 <span>Purpose</span>
@@ -478,7 +478,7 @@ export default function LabPage() {
                   key={row.layer}
                   custom={i + 2}
                   variants={fadeUp}
-                  className="grid grid-cols-3 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center"
+                  className="grid grid-cols-3 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center min-w-[500px]"
                 >
                   <span className="font-semibold">{row.layer}</span>
                   <span className="text-[#E5D3B3]/70">{row.tech}</span>
@@ -588,7 +588,7 @@ export default function LabPage() {
         {/* ================================================================
             SPLUNK-AGENTIC-AI — Autonomous SIEM Agent
             ================================================================ */}
-        <div id="splunk">
+        <div id="splunk" className="scroll-mt-24 md:scroll-mt-32">
 
         {/* ── Project Header ──────────────────────────────────── */}
         <motion.section
@@ -599,7 +599,7 @@ export default function LabPage() {
           <motion.h1
             custom={0}
             variants={fadeUp}
-            className="text-2xl font-bold mb-4 text-[#E5D3B3]"
+            className="text-xl md:text-2xl font-bold mb-4 text-[#E5D3B3]"
           >
             &gt;_ Splunk-Agentic-AI&nbsp;
             <span className="text-[#E5D3B3]/50 font-normal">
@@ -639,10 +639,10 @@ export default function LabPage() {
           <motion.div
             custom={1}
             variants={fadeUp}
-            className="border border-[#E5D3B3]/20 rounded-md overflow-hidden text-sm"
+            className="border border-[#E5D3B3]/20 rounded-md overflow-x-auto text-sm"
           >
             {/* header */}
-            <div className="grid grid-cols-4 bg-[#E5D3B3]/10 p-3 font-bold">
+            <div className="grid grid-cols-4 bg-[#E5D3B3]/10 p-3 font-bold min-w-[600px]">
               <span>Agent</span>
               <span className="col-span-2">Role</span>
               <span>Interval</span>
@@ -654,7 +654,7 @@ export default function LabPage() {
                 key={a.name}
                 custom={i + 2}
                 variants={fadeUp}
-                className="grid grid-cols-4 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center"
+                className="grid grid-cols-4 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center min-w-[600px]"
               >
                 <span className="font-semibold">
                   {a.name}
@@ -775,7 +775,7 @@ export default function LabPage() {
             ================================================================ */}
         <div
           id="tcn-lstm"
-          className="border-t border-[#E5D3B3]/10 pt-16 mt-16"
+          className="scroll-mt-24 md:scroll-mt-32 border-t border-[#E5D3B3]/10 pt-16 mt-16"
         >
           {/* ── Header ──────────────────────────────────────────── */}
           <motion.section
@@ -787,7 +787,7 @@ export default function LabPage() {
             <motion.h1
               custom={0}
               variants={fadeUp}
-              className="text-2xl font-bold mb-2 text-[#E5D3B3]"
+              className="text-xl md:text-2xl font-bold mb-2 text-[#E5D3B3]"
             >
               &gt;_ TCN-LSTM Comparative Study&nbsp;
               <span className="text-[#E5D3B3]/50 font-normal">
@@ -828,10 +828,10 @@ export default function LabPage() {
             <motion.div
               custom={0}
               variants={fadeUp}
-              className="border border-[#E5D3B3]/20 rounded-md overflow-hidden text-sm"
+              className="border border-[#E5D3B3]/20 rounded-md overflow-x-auto text-sm"
             >
               {/* header */}
-              <div className="grid grid-cols-4 bg-[#E5D3B3]/10 p-3 font-bold">
+              <div className="grid grid-cols-4 bg-[#E5D3B3]/10 p-3 font-bold min-w-[600px]">
                 <span>Model</span>
                 <span>Type</span>
                 <span>Parameters</span>
@@ -844,7 +844,7 @@ export default function LabPage() {
                   key={row.model}
                   custom={i + 1}
                   variants={fadeUp}
-                  className="grid grid-cols-4 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center"
+                  className="grid grid-cols-4 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center min-w-[600px]"
                 >
                   <span className="font-semibold">{row.model}</span>
                   <span className="text-[#E5D3B3]/70">{row.type}</span>
@@ -963,7 +963,7 @@ export default function LabPage() {
             ================================================================ */}
         <div
           id="weather"
-          className="border-t border-[#E5D3B3]/10 pt-16 mt-16"
+          className="scroll-mt-24 md:scroll-mt-32 border-t border-[#E5D3B3]/10 pt-16 mt-16"
         >
           {/* ── Header ──────────────────────────────────────────── */}
           <motion.section
@@ -975,7 +975,7 @@ export default function LabPage() {
             <motion.h1
               custom={0}
               variants={fadeUp}
-              className="text-2xl font-bold mb-2 text-[#E5D3B3]"
+              className="text-xl md:text-2xl font-bold mb-2 text-[#E5D3B3]"
             >
               &gt;_ Weather_Dashboard&nbsp;
               <span className="text-[#E5D3B3]/50 font-normal">
@@ -1016,10 +1016,10 @@ export default function LabPage() {
             <motion.div
               custom={0}
               variants={fadeUp}
-              className="border border-[#E5D3B3]/20 rounded-md overflow-hidden text-sm"
+              className="border border-[#E5D3B3]/20 rounded-md overflow-x-auto text-sm"
             >
               {/* header */}
-              <div className="grid grid-cols-3 bg-[#E5D3B3]/10 p-3 font-bold">
+              <div className="grid grid-cols-3 bg-[#E5D3B3]/10 p-3 font-bold min-w-[500px]">
                 <span>Layer</span>
                 <span>Technology</span>
                 <span>Purpose</span>
@@ -1031,7 +1031,7 @@ export default function LabPage() {
                   key={row.layer}
                   custom={i + 1}
                   variants={fadeUp}
-                  className="grid grid-cols-3 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center"
+                  className="grid grid-cols-3 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center min-w-[500px]"
                 >
                   <span className="font-semibold">{row.layer}</span>
                   <span className="text-[#E5D3B3]/70">{row.tech}</span>
@@ -1141,7 +1141,7 @@ export default function LabPage() {
             ================================================================ */}
         <div
           id="task-system"
-          className="border-t border-[#E5D3B3]/10 pt-16 mt-16"
+          className="scroll-mt-24 md:scroll-mt-32 border-t border-[#E5D3B3]/10 pt-16 mt-16"
         >
           {/* ── Header ──────────────────────────────────────────── */}
           <motion.section
@@ -1153,7 +1153,7 @@ export default function LabPage() {
             <motion.h1
               custom={0}
               variants={fadeUp}
-              className="text-2xl font-bold mb-2 text-[#E5D3B3]"
+              className="text-xl md:text-2xl font-bold mb-2 text-[#E5D3B3]"
             >
               &gt;_ Task_Management_System&nbsp;
               <span className="text-[#E5D3B3]/50 font-normal">
@@ -1193,10 +1193,10 @@ export default function LabPage() {
             <motion.div
               custom={0}
               variants={fadeUp}
-              className="border border-[#E5D3B3]/20 rounded-md overflow-hidden text-sm"
+              className="border border-[#E5D3B3]/20 rounded-md overflow-x-auto text-sm"
             >
               {/* header */}
-              <div className="grid grid-cols-3 bg-[#E5D3B3]/10 p-3 font-bold">
+              <div className="grid grid-cols-3 bg-[#E5D3B3]/10 p-3 font-bold min-w-[500px]">
                 <span>Layer</span>
                 <span>Technology</span>
                 <span>Purpose</span>
@@ -1208,7 +1208,7 @@ export default function LabPage() {
                   key={row.layer}
                   custom={i + 1}
                   variants={fadeUp}
-                  className="grid grid-cols-3 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center"
+                  className="grid grid-cols-3 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center min-w-[500px]"
                 >
                   <span className="font-semibold">{row.layer}</span>
                   <span className="text-[#E5D3B3]/70">{row.tech}</span>
