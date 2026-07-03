@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Monitor, Library, Terminal, ArrowRight, Mail } from "lucide-react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Foyer() {
   const [hovered, setHovered] = useState<"left" | "right" | null>(null);
@@ -41,16 +41,13 @@ export default function Foyer() {
         
         {/* Contact Footer */}
         <div className="bg-[#1A2530] px-6 py-2 rounded-full shadow-lg mt-4 flex items-center justify-center gap-6">
-          <a href="#" className="p-2 rounded-full text-[#E5D3B3]/70 hover:text-[#E5D3B3] hover:bg-[#E5D3B3]/10 transition-all cursor-pointer">
+          <a href="https://github.com/diveshbari13" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full text-[#E5D3B3]/70 hover:text-[#E5D3B3] hover:bg-[#E5D3B3]/10 transition-all cursor-pointer">
             <FaGithub size={20} />
           </a>
-          <a href="#" className="p-2 rounded-full text-[#E5D3B3]/70 hover:text-[#E5D3B3] hover:bg-[#E5D3B3]/10 transition-all cursor-pointer">
+          <a href="https://www.linkedin.com/in/divesh-bari-824552318" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full text-[#E5D3B3]/70 hover:text-[#E5D3B3] hover:bg-[#E5D3B3]/10 transition-all cursor-pointer">
             <FaLinkedin size={20} />
           </a>
-          <a href="#" className="p-2 rounded-full text-[#E5D3B3]/70 hover:text-[#E5D3B3] hover:bg-[#E5D3B3]/10 transition-all cursor-pointer">
-            <FaTwitter size={20} />
-          </a>
-          <a href="#" className="p-2 rounded-full text-[#E5D3B3]/70 hover:text-[#E5D3B3] hover:bg-[#E5D3B3]/10 transition-all cursor-pointer">
+          <a href="mailto:diveshbari13@gmail.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full text-[#E5D3B3]/70 hover:text-[#E5D3B3] hover:bg-[#E5D3B3]/10 transition-all cursor-pointer">
             <Mail size={20} />
           </a>
         </div>
@@ -92,7 +89,7 @@ export default function Foyer() {
               Visit The Lab
             </h2>
             <p className="font-mono text-sm md:text-base opacity-70 mb-8 max-w-md">
-              Applied Engineering & Autonomous Security Orchestration
+              A collection of my applied engineering and autonomous security projects.
             </p>
 
             <AnimatePresence>
@@ -157,7 +154,7 @@ export default function Foyer() {
               Visit The Library
             </h2>
             <p className="font-serif text-sm md:text-base opacity-70 mb-8 max-w-md italic">
-              Academic Research & Formal Neural Network Analysis
+              A collection of my published academic research and formal neural network analysis.
             </p>
 
             <AnimatePresence>
@@ -192,7 +189,7 @@ export default function Foyer() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsAboutOpen(false)}
-            className="fixed inset-0 z-[100] flex items-start justify-center pt-[120px] bg-black/40 backdrop-blur-md cursor-pointer"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/40 backdrop-blur-md cursor-pointer"
           >
             <motion.div
               initial={{ y: -20, opacity: 0 }}
@@ -200,7 +197,7 @@ export default function Foyer() {
               exit={{ y: -10, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#1A2530] border border-[#E5D3B3]/20 shadow-2xl rounded-2xl p-8 max-w-md text-center flex flex-col items-center gap-4 cursor-default relative"
+              className="bg-[#1A2530] border border-[#E5D3B3]/20 shadow-2xl rounded-2xl p-8 max-w-2xl w-full text-left flex flex-col gap-6 cursor-default relative max-h-[90vh] overflow-y-auto"
             >
               <button
                 onClick={() => setIsAboutOpen(false)}
@@ -208,9 +205,85 @@ export default function Foyer() {
               >
                 ✕
               </button>
-              <p className="text-[#E5D3B3] text-sm leading-relaxed">
-                AI &amp; Data Science engineer bridging sequence-based neural network research with autonomous cybersecurity automation. Compiling theoretical research while engineering live, autonomous threat-monitoring systems.
-              </p>
+              
+              {/* Header & Summary */}
+              <div>
+                <h2 className="text-xl font-bold text-[#E5D3B3] mb-2">Divesh Shyamkant Bari</h2>
+                <p className="text-sm text-[#E5D3B3]/80 leading-relaxed">
+                  AI & Data Science engineer bridging sequence-based neural network research with autonomous cybersecurity automation. 
+                </p>
+              </div>
+
+              <hr className="border-[#E5D3B3]/10" />
+
+              {/* Education */}
+              <div>
+                <h3 className="text-xs font-sans tracking-widest uppercase text-[#E5D3B3]/50 mb-3">Education</h3>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <p className="text-sm font-bold text-[#E5D3B3]">B.E. Artificial Intelligence and Data Science</p>
+                    <p className="text-sm text-[#E5D3B3]/80">Savitribai Phule Pune University (SPPU)</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-[#E5D3B3]/80">Jun 2026</p>
+                    <p className="text-sm font-mono text-[#E5D3B3]">CGPA: 9.55</p>
+                  </div>
+                </div>
+              </div>
+
+              <hr className="border-[#E5D3B3]/10" />
+
+              {/* Experience */}
+              <div>
+                <h3 className="text-xs font-sans tracking-widest uppercase text-[#E5D3B3]/50 mb-3">Experience</h3>
+                <div className="flex flex-col gap-4">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-sm font-bold text-[#E5D3B3]">Research Intern</p>
+                      <p className="text-sm text-[#E5D3B3]/80">Eminsphere™</p>
+                    </div>
+                    <p className="text-sm text-[#E5D3B3]/80">Jul 2025 - Sep 2025</p>
+                  </div>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <p className="text-sm font-bold text-[#E5D3B3]">Data Science Intern</p>
+                      <p className="text-sm text-[#E5D3B3]/80">NeuAI Labs</p>
+                    </div>
+                    <p className="text-sm text-[#E5D3B3]/80">Dec 2024 - Jan 2025</p>
+                  </div>
+                </div>
+              </div>
+
+              <hr className="border-[#E5D3B3]/10" />
+
+              {/* Certifications */}
+              <div>
+                <h3 className="text-xs font-sans tracking-widest uppercase text-[#E5D3B3]/50 mb-3">Certifications</h3>
+                <ul className="text-sm text-[#E5D3B3]/80 space-y-2">
+                  <li><span className="text-[#E5D3B3] font-bold">Google Cybersecurity</span> — Google (Feb 2026)</li>
+                  <li><span className="text-[#E5D3B3] font-bold">Machine Learning Specialization</span> — DeepLearning.AI (Jul 2024)</li>
+                  <li><span className="text-[#E5D3B3] font-bold">Deep Learning</span> — DeepLearning.AI (Jun 2024)</li>
+                </ul>
+              </div>
+
+              <hr className="border-[#E5D3B3]/10" />
+
+              {/* Routing & Resume Link */}
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-2">
+                <p className="text-xs text-[#E5D3B3]/60 italic">
+                  * For applied engineering projects, visit <span className="text-[#E5D3B3] not-italic">The Lab</span>.<br/>
+                  * For formal academic research, visit <span className="text-[#E5D3B3] not-italic">The Library</span>.
+                </p>
+                <a 
+                  href="YOUR_GDRIVE_LINK_HERE" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-xs text-[#1A2530] bg-[#E5D3B3] hover:bg-white px-4 py-2 rounded-sm font-bold tracking-wide transition-colors whitespace-nowrap"
+                >
+                  [ VIEW FULL RESUME ]
+                </a>
+              </div>
+
               <span
                 onClick={() => setIsAboutOpen(false)}
                 className="text-xs text-[#E5D3B3]/50 hover:text-[#E5D3B3] tracking-widest uppercase cursor-pointer transition-colors mt-2 pb-1 border-b border-transparent hover:border-[#E5D3B3]/50"
