@@ -10,7 +10,16 @@ export default function Foyer() {
   const [hovered, setHovered] = useState<"left" | "right" | null>(null);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(true); // default to true to avoid flash on mobile
+  const [sandboxText, setSandboxText] = useState("THE SANDBOX");
   const router = useRouter();
+
+  const handleSandboxClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setSandboxText("[ COMING SOON ]");
+    setTimeout(() => {
+      setSandboxText("THE SANDBOX");
+    }, 3000);
+  };
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -40,10 +49,11 @@ export default function Foyer() {
         <motion.button 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-[#1A2530] rounded-full px-8 py-3 shadow-lg border border-white/5 flex items-center justify-center transition-colors hover:bg-white/10"
+          onClick={handleSandboxClick}
+          className="bg-[#1A2530] rounded-full px-8 py-3 shadow-lg border border-white/5 flex items-center justify-center transition-all duration-300 hover:bg-white/10 min-w-[220px]"
         >
-          <span className="font-mono text-sm tracking-widest text-[var(--color-champagne-gold)]">
-            THE SANDBOX
+          <span className="font-mono text-sm tracking-widest text-[var(--color-champagne-gold)] transition-all duration-300">
+            {sandboxText}
           </span>
         </motion.button>
         
