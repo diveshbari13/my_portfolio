@@ -20,7 +20,7 @@ export default function Foyer() {
   }, []);
 
   return (
-    <main className="relative flex flex-col md:flex-row h-full w-full overflow-hidden bg-[var(--color-oxford-twilight)] text-[var(--color-champagne-gold)] font-sans">
+    <main className="relative flex flex-col md:flex-row min-h-[100dvh] md:h-screen w-full overflow-hidden bg-[var(--color-oxford-twilight)] text-[var(--color-champagne-gold)] font-sans pb-40 md:pb-0 gap-12 md:gap-0 pt-24 md:pt-0">
       
       {/* Top Header */}
       <div className="absolute top-6 md:top-10 left-0 w-full z-50 pointer-events-auto flex flex-col items-center">
@@ -36,7 +36,7 @@ export default function Foyer() {
       </div>
 
       {/* Bottom Footer */}
-      <div className="absolute bottom-4 md:bottom-10 left-0 w-full z-50 pointer-events-auto flex flex-col items-center justify-center">
+      <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 w-full z-50 pointer-events-auto flex flex-col items-center justify-center">
         <motion.button 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
