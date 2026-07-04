@@ -36,7 +36,7 @@ export default function Foyer() {
       </div>
 
       {/* Bottom Footer */}
-      <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 w-full z-50 pointer-events-auto flex flex-col items-center justify-center">
+      <div className="absolute bottom-6 md:bottom-10 left-0 w-full z-50 pointer-events-auto flex flex-col items-center justify-center">
         <motion.button 
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
