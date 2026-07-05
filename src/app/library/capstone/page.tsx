@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function CapstoneReport() {
   return (
-    <main className="min-h-screen overflow-y-auto bg-[#F4F1EA] text-[#3E2723] font-serif">
+    <main className="min-h-screen bg-[#F4F1EA] text-[#3E2723] font-serif">
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-[#D4C4A8] text-[#3E2723] py-4 px-8 flex justify-between items-center shadow-sm">
         <Link href="/library" className="hover:opacity-70 transition-opacity">

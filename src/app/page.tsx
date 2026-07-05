@@ -38,7 +38,7 @@ export default function Foyer() {
         </div>
         <span
           onClick={() => setIsAboutOpen(true)}
-          className="text-xs text-[#E5D3B3]/60 hover:text-[#E5D3B3] font-sans tracking-widest uppercase cursor-pointer transition-colors mt-2 pb-1 border-b border-transparent hover:border-[#E5D3B3]/50"
+          className="bg-[#12161a] text-[#E5D3B3] px-6 py-1.5 rounded-full text-xs font-mono tracking-widest hover:opacity-80 transition-opacity z-50 cursor-pointer mt-2"
         >
           [ About the Engineer ]
         </span>
@@ -203,6 +203,12 @@ export default function Foyer() {
         </div>
       </motion.div>
 
+      {/* Central Dead Zone */}
+      <div
+        className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-12 z-40 cursor-default"
+        onClick={(e) => e.stopPropagation()}
+      ></div>
+
       {/* About Me Modal */}
       <AnimatePresence>
         {isAboutOpen && (
@@ -297,7 +303,7 @@ export default function Foyer() {
                   * For formal academic research, visit <span className="text-[#E5D3B3] not-italic">The Library</span>.
                 </p>
                 <a 
-                  href="YOUR_GDRIVE_LINK_HERE" 
+                  href="https://drive.google.com/file/d/1APUX4d3TD9jbLapx06tAvLJDcgUChCe9/view?usp=sharing" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-xs text-[#1A2530] bg-[#E5D3B3] hover:bg-white px-4 py-2 rounded-sm font-bold tracking-wide transition-colors whitespace-nowrap"
