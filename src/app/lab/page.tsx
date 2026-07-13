@@ -18,6 +18,67 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
+/* ─── Syscall-IDS-Kernel data ────────────────────────────────────────── */
+const syscallArchRows = [
+  {
+    layer: "Kernel",
+    tech: "C (gnu99), x86 Assembly",
+    purpose: "Handles boot, interrupts (GDT/IDT/PIC), and syscalls (int 0x80)",
+  },
+  {
+    layer: "Logging Channel",
+    tech: "COM1 Serial Port",
+    purpose: "Transmits every syscall event from the isolated kernel to the host",
+  },
+  {
+    layer: "Host Analyzer",
+    tech: "Python 3",
+    purpose: "Parses logs, builds bigrams, and scores sequences for anomalies",
+  },
+];
+
+const syscallCapabilities = [
+  "From-scratch multiboot kernel with zero OS dependencies",
+  "Working Interrupt Descriptor Table (IDT) catching CPU exceptions",
+  "Programmable Interrupt Controller (PIC) remapping for hardware IRQs",
+  "Physical bump allocator implemented for sys_alloc",
+];
+
+const syscallDetectorOutput = [
+  { prefix: "+", color: "text-green-400/80", label: "PID 1 (Baseline)", detail: "Score: 0.67 (ANOMALOUS - low sample size)" },
+  { prefix: "+", color: "text-green-400/80", label: "PID 2 (Baseline)", detail: "Score: 0.50 (normal)" },
+  { prefix: "!", color: "text-rose-500/90", label: "PID 3 (Test)", detail: "Score: 1.00 (ANOMALOUS - caught 10x alloc loop)" },
+];
+
+const syscallStackCards = [
+  {
+    title: "Kernel Stack",
+    items: [
+      "C (freestanding)",
+      "x86 Assembly",
+      "i686-elf-gcc",
+      "GRUB / Multiboot",
+    ],
+  },
+  {
+    title: "Analysis Stack",
+    items: [
+      "Python 3",
+      "Sliding-window n-gram model",
+      "QEMU (Execution & Logging)",
+    ],
+  },
+  {
+    title: "OS Primitives",
+    items: [
+      "Global Descriptor Table (GDT)",
+      "Interrupt Descriptor Table (IDT)",
+      "PIC Remapping",
+      "Syscall Interface",
+    ],
+  },
+];
+
 /* ─── Aegis AI data ─────────────────────────────────────────────── */
 const aegisArchRows = [
   {
@@ -351,6 +412,13 @@ export default function LabPage() {
               className="flex flex-col items-end gap-3 mt-4 overflow-hidden text-sm"
             >
               <Link
+                href="#syscall-ids"
+                onClick={() => setIsNavOpen(false)}
+                className="hover:text-white transition-colors"
+              >
+                [ Syscall Kernel ]
+              </Link>
+              <Link
                 href="#aegis"
                 onClick={() => setIsNavOpen(false)}
                 className="hover:text-white transition-colors"
@@ -392,6 +460,189 @@ export default function LabPage() {
 
       {/* ─── Content ────────────────────────────────────────────── */}
       <div className="max-w-5xl mx-auto py-8 md:py-12 px-4 md:px-6">
+
+        {/* ================================================================
+            SYSCALL-IDS-KERNEL — OS Internals + Applied ML
+            ================================================================ */}
+        <div id="syscall-ids" className="scroll-mt-24 md:scroll-mt-32 mb-24 border-b border-[#E5D3B3]/10 pb-16 mb-16">
+
+          {/* ── Syscall Header ──────────────────────────────────── */}
+          <motion.section
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+          >
+            <motion.h1
+              custom={0}
+              variants={fadeUp}
+              className="text-xl md:text-2xl font-bold mb-2 text-[#E5D3B3]"
+            >
+              &gt;_ Syscall-Level Anomaly Detection Kernel&nbsp;
+              <span className="text-[#E5D3B3]/50 font-normal">
+                : OS Internals + Applied ML
+              </span>
+            </motion.h1>
+
+            <motion.div
+              custom={1}
+              variants={fadeUp}
+              className="text-xs text-[#E5D3B3]/50 font-mono mb-4 flex items-center gap-2"
+            >
+              <span>[ Lead Developer ]</span>
+              <span className="text-[#E5D3B3]/30">|</span>
+              <span>[ Solo Project ]</span>
+            </motion.div>
+
+            <motion.div
+              custom={2}
+              variants={fadeUp}
+              className="text-sm text-[#E5D3B3]/70 mb-8 border-l-2 border-[#E5D3B3]/30 pl-4 space-y-2"
+            >
+              <p>
+                A minimal x86 kernel, written from scratch in C and assembly, that intercepts and logs every syscall a process makes.
+              </p>
+              <p>
+                Paired with a Python-based anomaly detector that flags suspicious syscall sequences using n-gram frequency modeling to emulate a host-based intrusion detection system (HIDS).
+              </p>
+            </motion.div>
+          </motion.section>
+
+          {/* ── Syscall Architecture Table ──────────────────────── */}
+          <motion.section
+            id="syscall-architecture"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={stagger}
+            className="mb-12"
+          >
+            <motion.h2
+              custom={0}
+              variants={fadeUp}
+              className="text-xs uppercase tracking-widest text-[#E5D3B3]/50 mb-3"
+            >
+              [ Core Architecture ]
+            </motion.h2>
+
+            <motion.div
+              custom={1}
+              variants={fadeUp}
+              className="border border-[#E5D3B3]/20 rounded-md overflow-x-auto text-sm"
+            >
+              {/* header */}
+              <div className="grid grid-cols-3 bg-[#E5D3B3]/10 p-3 font-bold min-w-[500px]">
+                <span>Layer</span>
+                <span>Technology</span>
+                <span>Purpose</span>
+              </div>
+
+              {/* rows */}
+              {syscallArchRows.map((row, i) => (
+                <motion.div
+                  key={row.layer}
+                  custom={i + 2}
+                  variants={fadeUp}
+                  className="grid grid-cols-3 p-3 border-t border-[#E5D3B3]/20 hover:bg-[#E5D3B3]/5 transition-colors items-center min-w-[500px]"
+                >
+                  <span className="font-semibold">{row.layer}</span>
+                  <span className="text-[#E5D3B3]/70">{row.tech}</span>
+                  <span className="text-[#E5D3B3]/70">{row.purpose}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.section>
+
+          {/* ── Capabilities & Evaluation ────────────────────────── */}
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={stagger}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+          >
+            {/* Left — Project Capabilities */}
+            <motion.div custom={0} variants={fadeUp}>
+              <h3 className="text-xs uppercase tracking-widest text-[#E5D3B3]/50 mb-4">
+                [ Implementation Highlights ]
+              </h3>
+              <ul className="space-y-2 text-sm">
+                {syscallCapabilities.map((item) => (
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="text-[#E5D3B3]/40 select-none shrink-0">
+                      $
+                    </span>
+                    <span className="text-[#E5D3B3]/80">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Right — Anomaly Detector Output */}
+            <motion.div custom={1} variants={fadeUp}>
+              <h3 className="text-xs uppercase tracking-widest text-[#E5D3B3]/50 mb-4">
+                [ N-Gram Detector Output ]
+              </h3>
+              <p className="text-sm text-[#E5D3B3]/70 mb-4">
+                Sliding-window bigram frequency model scoring processes against a known-good baseline (PID 1 & 2).
+              </p>
+              <div className="space-y-2 text-sm border-l-2 border-[#E5D3B3]/20 pl-4 font-mono">
+                {syscallDetectorOutput.map((field) => (
+                  <p key={field.label} className="text-[#E5D3B3]/80">
+                    <span className={`mr-1 ${field.color}`}>
+                      {field.prefix}
+                    </span>
+                    <span className="font-bold">{field.label}:</span>{" "}
+                    <span className="text-[#E5D3B3]/60">{field.detail}</span>
+                  </p>
+                ))}
+              </div>
+            </motion.div>
+          </motion.section>
+
+          {/* ── Stack Grid ─────────────────────────────── */}
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={stagger}
+          >
+            <motion.h2
+              custom={0}
+              variants={fadeUp}
+              className="text-xs uppercase tracking-widest text-[#E5D3B3]/50 mb-4"
+            >
+              [ Technical Stack ]
+            </motion.h2>
+
+            <div className="flex flex-wrap gap-4 text-xs">
+              {syscallStackCards.map((card, i) => (
+                <motion.div
+                  key={card.title}
+                  custom={i + 1}
+                  variants={fadeUp}
+                  className="flex-1 min-w-[220px] border border-[#E5D3B3]/20 rounded-md p-4 hover:border-[#E5D3B3]/40 transition-colors"
+                >
+                  <h4 className="font-bold text-sm mb-3 text-[#E5D3B3]/90">
+                    {card.title}
+                  </h4>
+                  <ul className="space-y-1.5">
+                    {card.items.map((item) => (
+                      <li
+                        key={item}
+                        className="text-[#E5D3B3]/60 flex items-start gap-1.5"
+                      >
+                        <span className="text-[#E5D3B3]/30 select-none shrink-0">
+                          ›
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </motion.section>
+        </div>
 
         {/* ================================================================
             AEGIS AI — Full-Stack Autonomous SIEM Platform

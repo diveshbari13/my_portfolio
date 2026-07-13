@@ -267,6 +267,13 @@ export default function Foyer() {
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-1 sm:gap-0 w-full">
                     <div>
+                      <p className="text-sm font-bold text-[#E5D3B3]">AI Engineer (Contract)</p>
+                      <p className="text-sm text-[#E5D3B3]/80">Eminsphere™</p>
+                    </div>
+                    <p className="text-sm text-[#E5D3B3]/80">Jul 2026 - Present</p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row justify-between items-start gap-1 sm:gap-0 w-full">
+                    <div>
                       <p className="text-sm font-bold text-[#E5D3B3]">Research Intern</p>
                       <p className="text-sm text-[#E5D3B3]/80">Eminsphere™</p>
                     </div>
@@ -278,6 +285,31 @@ export default function Foyer() {
                       <p className="text-sm text-[#E5D3B3]/80">NeuAI Labs</p>
                     </div>
                     <p className="text-sm text-[#E5D3B3]/80">Dec 2024 - Jan 2025</p>
+                  </div>
+                </div>
+              </div>
+
+              <hr className="border-[#E5D3B3]/10" />
+
+              {/* Projects */}
+              <div>
+                <h3 className="text-xs font-sans tracking-widest uppercase text-[#E5D3B3]/50 mb-3">Projects</h3>
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col w-full gap-1">
+                    <p className="text-sm font-bold text-[#E5D3B3]">Syscall-Level Anomaly Detection Kernel</p>
+                    <p className="text-xs text-[#E5D3B3]/80">Bootable x86 kernel with zero dependency on an existing OS, featuring a Python n-gram model over intercepted syscall sequences to detect anomalous process behavior.</p>
+                  </div>
+                  <div className="flex flex-col w-full gap-1">
+                    <p className="text-sm font-bold text-[#E5D3B3]">Aegis AI</p>
+                    <p className="text-xs text-[#E5D3B3]/80">Full-Stack Platform with a Retrieval-Grounded LLM Agent (Llama 3) that anchors classifications in a structured external knowledge base (MITRE ATT&CK framework).</p>
+                  </div>
+                  <div className="flex flex-col w-full gap-1">
+                    <p className="text-sm font-bold text-[#E5D3B3]">Splunk-Agentic-AI</p>
+                    <p className="text-xs text-[#E5D3B3]/80">An autonomous, tool-using multi-agent system (LangGraph) running continuous detection-to-action cycles for cybersecurity.</p>
+                  </div>
+                  <div className="flex flex-col w-full gap-1">
+                    <p className="text-sm font-bold text-[#E5D3B3]">TCN-LSTM Comparative Study</p>
+                    <p className="text-xs text-[#E5D3B3]/80">Applied ML evaluation research achieving state-of-the-art forecasting accuracy (1.8458°C MAE) validated against GRU and LSTM baselines.</p>
                   </div>
                 </div>
               </div>
@@ -297,19 +329,11 @@ export default function Foyer() {
               <hr className="border-[#E5D3B3]/10" />
 
               {/* Routing & Resume Link */}
-              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row justify-start items-center gap-4 pt-2">
                 <p className="text-xs text-[#E5D3B3]/60 italic">
                   * For applied engineering projects, visit <span className="text-[#E5D3B3] not-italic">The Lab</span>.<br/>
                   * For formal academic research, visit <span className="text-[#E5D3B3] not-italic">The Library</span>.
                 </p>
-                <a 
-                  href="https://drive.google.com/file/d/1APUX4d3TD9jbLapx06tAvLJDcgUChCe9/view?usp=sharing" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-xs text-[#1A2530] bg-[#E5D3B3] hover:bg-white px-4 py-2 rounded-sm font-bold tracking-wide transition-colors whitespace-nowrap"
-                >
-                  [ VIEW FULL RESUME ]
-                </a>
               </div>
 
               <span
