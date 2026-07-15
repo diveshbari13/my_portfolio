@@ -267,13 +267,6 @@ export default function Foyer() {
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col sm:flex-row justify-between items-start gap-1 sm:gap-0 w-full">
                     <div>
-                      <p className="text-sm font-bold text-[#E5D3B3]">AI Engineer (Contract)</p>
-                      <p className="text-sm text-[#E5D3B3]/80">Eminsphere™</p>
-                    </div>
-                    <p className="text-sm text-[#E5D3B3]/80">Jul 2026 - Present</p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row justify-between items-start gap-1 sm:gap-0 w-full">
-                    <div>
                       <p className="text-sm font-bold text-[#E5D3B3]">Research Intern</p>
                       <p className="text-sm text-[#E5D3B3]/80">Eminsphere™</p>
                     </div>
