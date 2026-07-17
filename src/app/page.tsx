@@ -254,7 +254,7 @@ export default function Foyer() {
                   </div>
                   <div className="text-right">
                     <p className="text-sm text-[#E5D3B3]/80">Jun 2026</p>
-                    <p className="text-sm font-mono text-[#E5D3B3]">CGPA: 9.55</p>
+                    <p className="text-sm font-mono text-[#E5D3B3]">CGPA: 9.03</p>
                   </div>
                 </div>
               </div>
